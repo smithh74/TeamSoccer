@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teams.R
+import com.example.teams.TeamItemFragmentDirections
 import com.example.teams.databinding.TeamItemBinding
 import com.example.teams.model.SoccerTeam
 import com.squareup.picasso.Picasso
@@ -25,12 +26,13 @@ class TeamAdapter (val teamList: List<SoccerTeam>): RecyclerView.Adapter<TeamAda
 
     inner class TeamHolder(val binding: TeamItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(team : SoccerTeam){
-            binding.teamNameTxt.text=team.strTeam
-            binding.nameStadiumTxt.text=team.strStadium
+            binding.txtTeamName.text=team.strTeam
+            binding.txtNameStadium.text=team.strStadium
             Picasso.get().load(team.strTeamBadge).into(binding.teamBadgeImg)
             binding.detailBtn.setOnClickListener{
-                it.findNavController().navigate(R.id.action_teamItemFragment_to_detailFragment)
-                it.findNavController().navigate(R.id.action_teamItemFragment_to_detailFragment)
+                it.findNavController().navigate(TeamItemFragmentDirections.actionTeamItemFragmentToDetailFragment(
+                    team.strTeam, team.strDescriptionEN, team.strTeamBadge, team.strTeamJersey
+                ))
             }
         }
     }
