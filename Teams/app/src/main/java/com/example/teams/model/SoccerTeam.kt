@@ -1,6 +1,7 @@
 package com.example.teams.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class SoccerTeam  (
     val strTeam: String?,
@@ -12,4 +13,4 @@ data class SoccerTeam  (
     //@SerializedName("strDescriptionEN") val shirtTeam: String?
 
 
-)
+) : Serializable

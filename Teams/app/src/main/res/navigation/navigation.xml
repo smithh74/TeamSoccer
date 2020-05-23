@@ -17,20 +17,10 @@
         android:name="com.example.teams.DetailFragment"
         android:label="@string/name_details">
         <argument
-            android:name="teamName"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="teamdescripcion"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="badgeUrl"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="teamJersey"
-            app:argType="string"
-            app:nullable="true" />
+            android:name="team"
+            app:argType="com.example.teams.model.SoccerTeam" />
+        <action
+            android:id="@+id/action_detailFragment_to_teamItemFragment"
+            app:destination="@id/teamItemFragment" />
     </fragment>
 </navigation>

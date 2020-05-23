@@ -30,9 +30,7 @@ class TeamAdapter (val teamList: List<SoccerTeam>): RecyclerView.Adapter<TeamAda
             binding.txtNameStadium.text=team.strStadium
             Picasso.get().load(team.strTeamBadge).into(binding.teamBadgeImg)
             binding.detailBtn.setOnClickListener{
-                it.findNavController().navigate(TeamItemFragmentDirections.actionTeamItemFragmentToDetailFragment(
-                    team.strTeam, team.strDescriptionEN, team.strTeamBadge, team.strTeamJersey
-                ))
+                it.findNavController().navigate(TeamItemFragmentDirections.actionTeamItemFragmentToDetailFragment(team))
             }
         }
     }

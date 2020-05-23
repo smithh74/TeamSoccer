@@ -16,12 +16,12 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle? ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
 
-        val args=DetailFragmentArgs.fromBundle(requireArguments())
-        binding.teamNameDetailTxt.text=args.teamName
-        binding.teamDescriptionDetailTxt.text=args.teamdescripcion
-        Picasso.get().load(args.badgeUrl).into(binding.teamBadgeDetailImg)
-        Picasso.get().load(args.teamJersey).into(binding.teamJerseyDetailImg)
-        return binding.root
-    }
+val args=DetailFragmentArgs.fromBundle(requireArguments())
+    binding.teamNameDetailTxt.text=args.team.strTeam
+    binding.teamDescriptionDetailTxt.text=args.team.strDescriptionEN
+    Picasso.get().load(args.team.strTeamBadge).into(binding.teamBadgeDetailImg)
+    Picasso.get().load(args.team.strTeamJersey).into(binding.teamJerseyDetailImg)
+    return binding.root
+}
 
 }
